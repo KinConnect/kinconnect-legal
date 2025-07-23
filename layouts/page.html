@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --border-color: #e5e7eb;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            margin: -20px -20px 60px -20px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--surface);
+            padding: 16px 0;
+            margin: -20px -20px 40px -20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .nav a:hover {
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        .nav a.active {
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 16px;
+            margin-bottom: 32px;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+        
+        h4 {
+            font-size: 1.125rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+        
+        /* Content */
+        p {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        /* Links */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: var(--primary-dark);
+        }
+        
+        /* Special sections */
+        .effective-date {
+            background: var(--surface);
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 32px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .effective-date p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        /* Code blocks */
+        code {
+            background: var(--surface);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9em;
+            color: var(--primary-color);
+        }
+        
+        /* Contact section */
+        .contact-section {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 48px 0;
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            background: var(--surface);
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+        
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .footer a {
+            color: var(--text-secondary);
+            margin: 0 16px;
+            font-weight: 500;
+        }
+        
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Table of contents */
+        .toc {
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+        
+        .toc ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .toc li {
+            margin-bottom: 4px;
+        }
+        
+        .toc a {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        .toc a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            .header {
+                margin: -16px -16px 40px -16px;
+                padding: 32px 16px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav {
+                margin: -16px -16px 32px -16px;
+            }
+            
+            .nav-container {
+                padding: 0 16px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 1.875rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 32px;
+            }
+            
+            .footer {
+                margin-left: -16px;
+                margin-right: -16px;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .header, .nav, .footer {
+                background: none !important;
+                color: black !important;
+            }
+            
+            .header {
+                border-bottom: 2px solid black;
+            }
+            
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+    </div>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/kinconnect-legal/" {% if page.url == "/kinconnect-legal/" %}class="active"{% endif %}>Home</a>
+            <a href="/kinconnect-legal/terms-of-service/" {% if page.url contains "terms" %}class="active"{% endif %}>Terms of Service</a>
+            <a href="/kinconnect-legal/privacy-policy/" {% if page.url contains "privacy" %}class="active"{% endif %}>Privacy Policy</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        {% if page.title %}
+        <div class="effective-date">
+            <p><strong>{{ page.title }}</strong> • Last Updated: {{ page.last_updated | default: "January 23, 2025" }}</p>
+        </div>
+        {% endif %}
+        
+        <main>
+            {{ content }}
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 KinConnect Organization. All rights reserved.</p>
+        <div>
+            <a href="/kinconnect-legal/">Legal Documents</a>
+            <a href="mailto:legal@kinconnect.app">Contact Legal</a>
+            <a href="mailto:support@kinconnect.app">Support</a>
+        </div>
+        <p style="margin-top: 16px; font-style: italic;">Building connections. Preserving heritage. Celebrating family.</p>
+    </footer>
+</body>
+</html>

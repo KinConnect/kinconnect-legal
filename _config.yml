@@ -1,0 +1,69 @@
+# Site settings
+title: KinConnect Legal Documents
+description: Official legal documents for KinConnect mobile application
+url: "https://kinconnect.github.io"
+baseurl: "/kinconnect-legal"
+
+# Theme
+theme: minima
+# Alternative themes you can use:
+# theme: jekyll-theme-minimal
+# theme: jekyll-theme-cayman
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Permalink structure for clean URLs
+permalink: pretty
+
+# Exclude these files from the built site
+exclude:
+  - README.md
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include these files in the build
+include:
+  - _pages
+
+# Collections (optional)
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default layouts for different file types
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: "*.md"
+    values:
+      layout: "page"
+
+# Site navigation (optional)
+header_pages:
+  - TERMS_OF_SERVICE.md
+  - PRIVACY_POLICY.md
+
+# SEO and social
+twitter:
+  username: kinconnect
+social:
+  name: KinConnect
+  links:
+    - https://github.com/kinconnect
+
+# Google Analytics (optional)
+# google_analytics: YOUR_TRACKING_ID

@@ -1,3 +1,10 @@
+---
+title: Terms of Service
+description: Terms of Service for KinConnect mobile application
+layout: page
+permalink: /terms-of-service/
+---
+
 # KinConnect Terms of Service
 
 **Effective Date: July 23, 2025**  
