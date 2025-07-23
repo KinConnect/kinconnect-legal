@@ -3,6 +3,7 @@ title: Privacy Policy
 description: Privacy Policy for KinConnect mobile application
 layout: page
 permalink: /privacy-policy/
+last_updated: July 23, 2025
 ---
 
 # KinConnect Privacy Policy

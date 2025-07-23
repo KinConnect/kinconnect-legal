@@ -3,6 +3,7 @@ title: Terms of Service
 description: Terms of Service for KinConnect mobile application
 layout: page
 permalink: /terms-of-service/
+last_updated: July 23, 2025
 ---
 
 # KinConnect Terms of Service
