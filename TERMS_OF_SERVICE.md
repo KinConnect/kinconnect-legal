@@ -1,7 +1,7 @@
 # KinConnect Terms of Service
 
-**Effective Date: [Current Date]**  
-**Last Updated: [Current Date]**
+**Effective Date: July 23, 2025**  
+**Last Updated: July 23, 2025**
 
 Welcome to KinConnect! These Terms of Service ("Terms") govern your use of the KinConnect mobile application and related services (collectively, the "Service") provided by KinConnect Organization ("KinConnect," "we," "us," or "our").
 
@@ -152,7 +152,7 @@ We may suspend or terminate your account if you:
 
 ### 11.2 Arbitration
 - Disputes will be resolved through binding arbitration rather than in court
-- Arbitration will be conducted under the rules of [Arbitration Organization]
+- Arbitration will be conducted under the rules of the American Arbitration Association (AAA)
 - You waive the right to participate in class action lawsuits
 
 ### 11.3 Exceptions
@@ -188,13 +188,13 @@ We may suspend or terminate your account if you:
 For questions, concerns, or notices regarding these Terms:
 
 **KinConnect Organization**
-- **Legal Email**: legal@kinconnect.app
-- **Support Email**: support@kinconnect.app  
-- **Website**: [kinconnect.app](#)
+- **Legal Email**: legal@kinconnect.com
+- **Support Email**: support@kinconnect.com  
+- **Website**: [kinconnect.com](#)
 
 ## 15. Governing Law
 
-These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law principles. Any legal actions must be brought in the courts of [Your Jurisdiction].
+These Terms are governed by the laws of the State of California, without regard to conflict of law principles. Any legal actions must be brought in the courts of the State of California.
 
 ## 16. Severability and Entire Agreement
 
