@@ -82,6 +82,7 @@
             display: flex;
             justify-content: center;
             gap: 32px;
+            position: relative;
         }
         
         .nav a {
@@ -101,6 +102,29 @@
         .nav a.active {
             color: var(--primary-color);
             background: rgba(37, 99, 235, 0.1);
+        }
+        
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
         }
         
         /* Typography */
@@ -297,9 +321,37 @@
             
             .nav-container {
                 padding: 0 16px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                border-top: 1px solid var(--border-color);
                 flex-direction: column;
-                gap: 16px;
-                text-align: center;
+                gap: 0;
+                padding: 16px 0;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 12px 20px;
+                border-radius: 0;
+                text-align: left;
             }
             
             h1 {
@@ -319,6 +371,19 @@
         
         /* Print styles */
         @media print {
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+            
+            .nav-links {
+                display: flex !important;
+                position: static !important;
+                flex-direction: row !important;
+                background: none !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            
             .header, .nav, .footer {
                 background: none !important;
                 color: black !important;
@@ -343,9 +408,12 @@
     
     <nav class="nav">
         <div class="nav-container">
-            <a href="/kinconnect-legal/" {% if page.url == "/kinconnect-legal/" %}class="active"{% endif %}>Home</a>
-            <a href="/kinconnect-legal/terms-of-service/" {% if page.url contains "terms" %}class="active"{% endif %}>Terms of Service</a>
-            <a href="/kinconnect-legal/privacy-policy/" {% if page.url contains "privacy" %}class="active"{% endif %}>Privacy Policy</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="/kinconnect-legal/" {% if page.url == "/kinconnect-legal/" %}class="active"{% endif %}>Home</a>
+                <a href="/kinconnect-legal/terms-of-service/" {% if page.url contains "terms" %}class="active"{% endif %}>Terms of Service</a>
+                <a href="/kinconnect-legal/privacy-policy/" {% if page.url contains "privacy" %}class="active"{% endif %}>Privacy Policy</a>
+            </div>
         </div>
     </nav>
     
@@ -370,5 +438,40 @@
         </div>
         <p style="margin-top: 16px; font-style: italic;">Building connections. Preserving heritage. Celebrating family.</p>
     </footer>
+    
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    
+                    // Update aria-expanded attribute for accessibility
+                    const isExpanded = navLinks.classList.contains('active');
+                    mobileToggle.setAttribute('aria-expanded', isExpanded);
+                });
+                
+                // Close menu when clicking on a link (mobile)
+                const navLinkItems = navLinks.querySelectorAll('a');
+                navLinkItems.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+                
+                // Close menu when clicking outside (mobile)
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.nav-container')) {
+                        navLinks.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
