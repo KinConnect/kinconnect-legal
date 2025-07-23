@@ -202,6 +202,6 @@ If any provision of these Terms is found unenforceable, the remaining provisions
 
 ---
 
-**© 2024 KinConnect Organization. All rights reserved.**
+**© 2025 KinConnect Organization. All rights reserved.**
 
 *Building connections. Preserving heritage. Celebrating family.*
